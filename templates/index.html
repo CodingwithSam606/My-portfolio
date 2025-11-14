@@ -66,20 +66,22 @@
 </section>
 
 <!-- ===== CV Modal Preview ===== -->
+<!-- ===== Download CV Button ===== -->
+<button class="download-btn" id="previewBtn">Download CV</button>
+
+<!-- ===== CV Modal (NO IFRAME — DIRECT DOWNLOAD) ===== -->
 <div id="cvModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <h3>Preview</h3>
-    <iframe 
-      src="{{ url_for('static', filename='Files/Asalu_Samuel_Professional_CV.pdf') }}" 
-      width="100%" 
-      height="500px"
-      style="border:none; border-radius: 10px;">
-    </iframe>
+    <h3>Download CV</h3>
+    <p>Your CV is ready for download.</p>
 
     <div class="modal-footer">
-      <a href="{{ url_for('static', filename='Files/Asalu_Samuel_Professional_CV.pdf') }}" download class="btn confirm-download">
-        Confirm
+      <a 
+        href="{{ url_for('static', filename='Files/Asalu_Samuel_Professional_CV.pdf') }}" 
+        download 
+        class="btn confirm-download">
+        Download Now
       </a>
     </div>
   </div>
