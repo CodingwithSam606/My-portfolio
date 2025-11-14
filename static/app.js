@@ -137,46 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ============================
-// 🧾 Modal for Download CV
-// ============================
-
-// Get modal elements
-const modal = document.getElementById("cvModal");
-const downloadBtn = document.querySelector(".download-btn");
-const closeModal = document.querySelector(".close");
-const confirmDownload = document.querySelector(".confirm-download");
-
-// When user clicks "Download CV" button → show modal
-downloadBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  modal.style.display = "block";
-});
-
-// When user clicks close (×) → hide modal
-closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// When user clicks outside modal → close it
-window.addEventListener("click", (event) => {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-// When user confirms → trigger CV download
-confirmDownload.addEventListener("click", () => {
-  modal.style.display = "none";
-
-  const link = document.createElement("a");
-  link.href = "{{ url_for('static', filename='Files/Asalu_Samuel_Professional_CV.pdf') }}";
-  link.download = "Asalu_Samuel_Professional_CV.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-});
-
-// ============================
 // 🎨 Portfolio Clickable Projects
 // ============================
 document.querySelectorAll('.project').forEach(project => {
@@ -231,34 +191,84 @@ form.addEventListener('submit', function(event) {
 // ============================
 
 document.addEventListener("DOMContentLoaded", () => {
+  // 🌗 DARK MODE TOGGLE
   const toggleBtn = document.getElementById("theme-toggle");
   const themeIcon = document.getElementById("theme-icon");
   const twitterIcon = document.getElementById("twitter-icon");
 
-  // Load saved theme
+function updateTwitterIcon(isDark) {
+  const width = window.innerWidth;
+  if (!twitterIcon) return;
+
+  const isPhone = width <= 480;
+  const isIpadPro = width >= 992 && width <= 1024;
+
+  if (isPhone) {
+    twitterIcon.src = isDark
+      ? "/static/icons8-twitter-50 (1).png"     // white icon on dark
+      : "/static/icons8-twitter-50.png"; // black icon on light
+  } else if (isIpadPro) {
+    twitterIcon.src = isDark
+      ? "/static/icons8-twitter-50 (1).png" // black icon on dark
+      : "/static/icons8-twitter-50.png";   // white icon on light
+  } else {
+    twitterIcon.src = isDark
+      ? "/static/icons8-twitter-50.png"     // white icon on dark
+      : "/static/icons8-twitter-50 (1).png"; // black icon on light
+  }
+}
+
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
     document.body.classList.add("dark-mode");
     themeIcon.src = "/static/icons8-toggle-on-24.png";
-    if (twitterIcon) {
-      twitterIcon.src = "/static/icons8-twitter-50.png"; // white icon
-    }
+    updateTwitterIcon(true);
+  } else {
+    updateTwitterIcon(false);
   }
 
   toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
-
     const isDark = document.body.classList.contains("dark-mode");
+
     themeIcon.src = isDark
       ? "/static/icons8-toggle-on-24.png"
       : "/static/icons8-toggle-off-24.png";
 
-    if (twitterIcon) {
-      twitterIcon.src = isDark
-        ? "/static/icons8-twitter-50.png" // white icon
-        : "/static/icons8-twitter-50 (1).png"; // black icon
-    }
-
+    updateTwitterIcon(isDark);
     localStorage.setItem("theme", isDark ? "dark" : "light");
   });
+
+  window.addEventListener("resize", () => {
+    const isDark = document.body.classList.contains("dark-mode");
+    updateTwitterIcon(isDark);
+  });
+
+  // 🧾 CV DOWNLOAD MODAL
+  const modal = document.getElementById("cvModal");
+  const downloadBtn = document.querySelector(".download-btn");
+  const closeModal = document.querySelector(".close");
+  const confirmDownload = document.querySelector(".confirm-download");
+
+  downloadBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.style.display = "block";
+  });
+
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  if (confirmDownload) {
+    confirmDownload.addEventListener("click", () => {
+      modal.style.display = "none";
+      // ✅ Let browser handle download via <a download>
+    });
+  }
 });
