@@ -553,7 +553,7 @@ section h2 {
 
 /* === Modal Content Box === */
 .modal-content {
-  background: #cac8c8;
+  background: #666666;
   padding: 2rem;
   border-radius: 10px;
   width: 90%;
@@ -570,7 +570,7 @@ section h2 {
   top: 12px;
   right: 16px;
   font-size: 1.5rem;
-  color: #333;
+  color: #cac8c8;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -587,7 +587,7 @@ section h2 {
 .modal-content p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
-  color: #555;
+  color: #ffffff;
 }
 
 /* === Footer Button === */
@@ -978,8 +978,8 @@ footer {
   justify-content: space-between; /* or center, or flex-start */
   align-items: center;
   padding: 20px;
-  background-color: #757575;
-  color: #f3f3f3;
+  background-color: #cac8c8;
+  color: #1d1d1d;
   flex-wrap: wrap; /* allows wrapping on smaller screens */
 }
 
@@ -990,7 +990,7 @@ footer {
 .footer-bottom {
   text-align: right;
   font-size: 0.9rem;
-  color: #cecece;
+  color: #3d3d3d;
 }
 
 /* ======== SMOOTH SCROLL ======== */
@@ -1042,9 +1042,6 @@ html {
 }
 
 /* === DARK MODE OVERRIDES === */
-/* ============================
-   🌙 DARK MODE OVERRIDES
-============================= */
 body.dark-mode {
   background-color: #5f5f5f;
   color: #cac8c8;
@@ -1078,6 +1075,36 @@ body.dark-mode .about .container h2::after {
   background: linear-gradient(90deg, #000000, #ffffff);
 }
 
+/* === DARK MODE OVERRIDES === */
+body.dark-mode .modal-content {
+  background: #222; /* deeper dark */
+  color: #eee;
+}
+
+body.dark-mode .modal-content h3 {
+  color: #fff;
+}
+
+body.dark-mode .modal-content p {
+  color: #ccc;
+}
+
+body.dark-mode .modal-content .close {
+  color: #aaa;
+}
+body.dark-mode .modal-content .close:hover {
+  color: #ff4d4d;
+}
+
+body.dark-mode .modal-footer .confirm-download {
+  background: #fff;
+  color: #000;
+}
+body.dark-mode .modal-footer .confirm-download:hover {
+  background: #444;
+  color: #fff;
+}
+
 /* === Skills Section === */
 body.dark-mode .skills { background-color: #c9c9c9; }
 body.dark-mode .skills h2{ color: #000000; }
@@ -1097,6 +1124,7 @@ body.dark-mode .skills h2::after {
 
 /* === Portfolio Section === */
 body.dark-mode .portfolio::before { background: #c9c9c9; }
+body.dark-mode .portfolio p { color: #000000;}
 body.dark-mode .portfolio h2,
 body.dark-mode .portfolio .note{
   color: #000000;
@@ -1134,7 +1162,7 @@ body.dark-mode .contact-right a {
 }
 body.dark-mode .contact-left a:hover,
 body.dark-mode .contact-right a:hover {
-  color: #cac8c8;
+  color: #ffffff;
 }
 
 /* === Header Navigation Links === */
