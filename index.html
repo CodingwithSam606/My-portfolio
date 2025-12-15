@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Samuel Asalu | Entry-Level Software Developer</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="static/styles.css" />
+
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
   <div id="loader">
     <div class="newtons-cradle">
       <div class="newtons-cradle__dot"></div>
@@ -17,21 +22,22 @@
       <div class="newtons-cradle__dot"></div>
     </div>
   </div>
+
   <header>
-     <div class="header-controls">
+    <div class="header-controls">
       <button id="theme-toggle" class="theme-btn">
-      <img id="theme-icon" src="{{ url_for('static', filename='icons8-toggle-off-24.png') }}" alt="Toggle Theme" />
-    </button>
-  </div>
-  <div class="logo"><!--SA--></div>
+        <img id="theme-icon" src="static/icons8-toggle-off-24.png" alt="Toggle Theme" />
+      </button>
+    </div>
+
+    <div class="logo"></div>
+
     <nav>
       <ul>
         <li><a href="#about">About me</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <a href="#contact" class="btn">
-          Contact Me <span></span>
-        </a>
+        <a href="#contact" class="btn">Contact Me <span></span></a>
       </ul>
     </nav>
   </header>
@@ -42,149 +48,126 @@
       <p>Hi, I am</p>
       <h1>Samuel Asalu</h1>
       <h3>Entry-Level Software Developer</h3>
+
       <div class="socials">
         <a href="#"></a>
-        <a href="#"><img src="{{ url_for('static', filename='icons8-github-48.png') }}" alt="GitHub" /></a>
-        <a href="#"><img src="{{ url_for('static', filename='icons8-linkedin-50.png') }}" alt="LinkedIn" /></a>
+        <a href="#"><img src="static/icons8-github-48.png" alt="GitHub" /></a>
+        <a href="#"><img src="static/icons8-linkedin-50.png" alt="LinkedIn" /></a>
       </div>
     </div>
   </section>
-  
+
   <section id="about" class="about">
-  <div class="container">
-    <h2>About Me</h2>
-    <p>
-      Hi, my name is Samuel Asalu, and I’m a passionate Junior Web Developer who resides in Nigeria. 
-      I love creating modern, responsive, and user-friendly websites that bring ideas to life through clean and creative code, using technologies like HTML, CSS, JavaScript, and React. 
-      My goal is to build digital experiences that are not only functional but also visually engaging and meaningful. 
-      I’m constantly learning new tools and exploring areas like Python, cloud computing, and data analysis to grow as a developer and push my creativity even further.
-    </p>
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        Hi, my name is Samuel Asalu, and I’m a passionate Junior Web Developer who resides in Nigeria.
+        I love creating modern, responsive, and user-friendly websites that bring ideas to life through clean and creative code.
+      </p>
 
-    <!-- Download CV Button -->
-    <button class="download-btn" id="previewBtn">Download CV</button>
-  </div>
-</section>
+      <button class="download-btn" id="previewBtn">Download CV</button>
+    </div>
+  </section>
 
-<!-- ===== CV Modal Preview ===== -->
-<div id="cvModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3>Download CV</h3>
-    <p>My CV is ready for download.</p>
+  <!-- CV Modal -->
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Download CV</h3>
+      <p>My CV is ready for download.</p>
 
-    <div class="modal-footer">
-      <a 
-        href="{{ url_for('static', filename='Files/Asalu_Samuel_Professional_CV.pdf') }}" 
-        download 
-        class="btn confirm-download">
-        Confirm
-      </a>
+      <div class="modal-footer">
+        <a href="static/Files/Asalu_Samuel_Professional_CV.pdf"
+           download
+           class="btn confirm-download">
+          Confirm
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-  <!-- Skills Section -->
+  <!-- Skills -->
   <section id="skills" class="skills">
     <div class="container">
       <h2>Skills</h2>
       <ul>
-        <li><img src="{{ url_for('static', filename='icons8-html-5-48.png') }}" alt="HTML" />HTML</li>
-        <li><img src="{{ url_for('static', filename='icons8-css-logo-48.png') }}" alt="CSS" />CSS</li>
-        <li><img src="{{ url_for('static', filename='icons8-javascript-48.png') }}" alt="JavaScript" />JavaScript</li>
-        <li><img src="{{ url_for('static', filename='icons8-python-48.png') }}" alt="Python" />Python</li>
-        <li><img src="{{ url_for('static', filename='icons8-machine-learning-50.png') }}" alt="Machine learning" />Machine Learning</li>
-        <li><img src="{{ url_for('static', filename='icons8-data-analysis-50.png') }}" alt="Data Analysis" />Data Analysis</li>
-        <li><img src="{{ url_for('static', filename='icons8-cloud-computing-50.png') }}" alt="Cloud" />Cloud Computing</li>
+        <li><img src="static/icons8-html-5-48.png" alt="HTML" />HTML</li>
+        <li><img src="static/icons8-css-logo-48.png" alt="CSS" />CSS</li>
+        <li><img src="static/icons8-javascript-48.png" alt="JavaScript" />JavaScript</li>
+        <li><img src="static/icons8-python-48.png" alt="Python" />Python</li>
+        <li><img src="static/icons8-machine-learning-50.png" alt="ML" />Machine Learning</li>
+        <li><img src="static/icons8-data-analysis-50.png" alt="Data Analysis" />Data Analysis</li>
+        <li><img src="static/icons8-cloud-computing-50.png" alt="Cloud" />Cloud Computing</li>
       </ul>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-<section id="portfolio" class="portfolio">
-  <div class="container">
-    <h2>Portfolio</h2>
-    <p>Some of my projects include:</p>
-    <div class="projects">
+  <!-- Portfolio -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2>Portfolio</h2>
 
-      <div class="project" data-link="https://portfolio-template-seven-ivory.vercel.app/">
-        <img src="{{ url_for('static', filename='Portfolio-template.png') }}" alt="Personal Portfolio">
-        <h3>Personal Portfolio</h3>
+      <div class="projects">
+        <div class="project" data-link="https://portfolio-template-seven-ivory.vercel.app/">
+          <img src="static/Portfolio-template.png" alt="Personal Portfolio">
+          <h3>Personal Portfolio</h3>
+        </div>
+
+        <div class="project" data-link="https://github.com/CodingwithSam606/fake-news-detection">
+          <img src="static/Fake news detector.png" alt="Fake News Detector">
+          <h3>Fake News Detector App</h3>
+        </div>
+
+        <div class="project" data-link="https://github.com/CodingwithSam606/Netflix-clone.git">
+          <img src="static/Netflix-clone.png" alt="Netflix Clone">
+          <h3>Netflix Clone</h3>
+        </div>
+
+        <div class="project" data-link="https://github.com/CodingwithSam606/bakery-template.git">
+          <img src="static/Bakery temp.png" alt="Bakery Website">
+          <h3>Bakery Website</h3>
+        </div>
       </div>
 
-      <div class="project" data-link="https://github.com/CodingwithSam606/fake-news-detection">
-        <img src="{{ url_for('static', filename='Fake news detector.png') }}" alt="Fake News Detector App">
-        <h3>Fake News Detector App</h3>
+      <p class="note">*Some projects are for practice purposes only.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-wrapper" id="contact">
+    <div class="contact-left reveal">
+      <h2>Let’s Work Together</h2>
+      <p>I enjoy building clean, meaningful digital experiences.</p>
+
+      <div class="contact-details">
+        <a href="mailto:samuelasalu@outlook.com">samuelasalu@outlook.com</a>
+        <p>Lagos, Nigeria</p>
       </div>
 
-      <div class="project" data-link="https://github.com/CodingwithSam606/Netflix-clone.git">
-        <img src="{{ url_for('static', filename='Netflix-clone.png') }}" alt="Netflix Clone">
-        <h3>Netflix Clone</h3>
+      <div class="social-icons">
+        <a href="https://github.com/CodingwithSam606" target="_blank">
+          <img src="static/icons8-github-48.png" alt="GitHub">
+        </a>
+        <a href="#"><img src="static/icons8-twitter-50 (1).png" alt="Twitter"></a>
+        <a href="#"><img src="static/icons8-instagram-48.png" alt="Instagram"></a>
       </div>
-
-      <div class="project" data-link="https://github.com/CodingwithSam606/bakery-template.git">
-        <img src="{{ url_for('static', filename='Bakery temp.png') }}" alt="Bakery Website">
-        <h3>Bakery Website</h3>
-      </div>
-
-    </div>
-    <p class="note">*Some projects are for practice purposes only.</p>
-  </div>
-</section>
-<!-- Contact Section -->
-<section class="contact-wrapper" id="contact">
-
-  <div class="contact-left reveal">
-    <h2>Let’s Work Together</h2>
-    <p>
-      I enjoy building clean, meaningful and functional digital experiences.
-      If you'd like to collaborate, hire me, or just say hello — I’m always open to good conversations.
-    </p>
-
-    <div class="contact-details">
-      <div class="mail"><a href="mailto:samuelasalu@outlook.com" class="email-link">samuelasalu@outlook.com</a></div>
-      <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
     </div>
 
-    <div class="social-icons">
-      <a href="https://github.com/CodingwithSam606" target="_blank"><img src="{{ url_for('static', filename='icons8-github-48.png') }}" alt="github" /><i class="fab fa-github"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" target="_blank"><img id="twitter-icon" src="{{ url_for('static', filename='icons8-twitter-50 (1).png') }}" alt="Twitter" /><i class="fab fa-twitter"></i></a>
-      <a href="#" target="_blank"><img src="{{ url_for('static', filename='icons8-instagram-48.png') }}" alt="fa-instagram" /><i class="fab fa-instagram"></i></a>
+    <div class="contact-right reveal">
+      <form action="https://formspree.io/f/xeovjynz" method="POST">
+        <input type="text" name="name" required placeholder="Your Name">
+        <input type="email" name="email" required placeholder="Email Address">
+        <textarea name="message" rows="5" required placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
-  </div>
+  </section>
 
-  <div class="contact-right reveal">
-  <form id="contactForm" action="https://formspree.io/f/xeovjynz" method="POST">
-    <div class="input-group">
-      <input type="text" name="name" required>
-      <label>Your Name</label>
-    </div>
-
-    <div class="input-group">
-      <input type="email" name="email" required>
-      <label>Email Address</label>
-    </div>
-
-    <div class="input-group">
-      <textarea name="message" rows="5" required></textarea>
-      <label>Your Message</label>
-    </div>
-
-    <button type="submit">Send Message</button>
-  </form>
-</div>
-</section>
-
-<footer class="footer">
-  <div class="footer-container">
-    <p>Samuel Asalu | Web Developer | Python & JavaScript Enthusiast</p>
-  </div>
-
-  <div class="footer-bottom">
+  <footer class="footer">
     <p>&copy; 2025 Sam Asalu. All rights reserved.</p>
-  </div>
-</footer>
+  </footer>
 
-  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <!-- JS -->
+  <script src="static/app.js"></script>
 </body>
 </html>
