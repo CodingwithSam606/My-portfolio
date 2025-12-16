@@ -891,27 +891,19 @@ section h2 {
 
 /* Email link */
 .contact-details a {
-  color: #0077cc;          /* default link color */
-  text-decoration: none;    /* remove default underline */
-  transition: color 0.3s ease, text-decoration 0.3s ease; /* smooth fade */
+  color: #858585;
+  /* default link color */
+  text-decoration: none;
+  /* remove default underline */
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  /* smooth fade */
 }
 
 /* Email hover effect */
 .contact-details a:hover {
-  color: #005fa3;          /* darker shade on hover */
+  color: #005fa3;
+  /* darker shade on hover */
   text-decoration: underline;
-}
-
-/* Location text */
-.contact-details p {
-  color: #555;             /* gray for location */
-  margin: 0;
-  transition: color 0.3s ease;
-}
-
-/* Optional: fade location on hover over the container */
-.contact-details:hover p {
-  color: #333;
 }
 
 /* Social Icons */
@@ -1559,4 +1551,5 @@ body.dark-mode .download-btn::after {
     z-index: -1;
   }
 }
+
 
