@@ -123,77 +123,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Dark/Light Mode Toggle
+  document.addEventListener("DOMContentLoaded", () => {
+
   const toggleBtn = document.getElementById("theme-toggle");
   const themeIcon = document.getElementById("theme-icon");
   const twitterIcon = document.getElementById("twitter-icon");
 
+  if (!toggleBtn) return; // Exit if toggle button not found
+
+  // Function to update Twitter icon based on dark mode and screen width
   function updateTwitterIcon(isDark) {
-    if(!twitterIcon) return;
+    if (!twitterIcon) return;
     const width = window.innerWidth;
     const isPhone = width <= 480;
     const isIpadPro = width >= 992 && width <= 1024;
 
-    if (isPhone) {
-      twitterIcon.src = isDark
-        ? "static/icons8-twitter-50 (1).png"
-        : "static/icons8-twitter-50.png";
-    } else if (isIpadPro) {
-      twitterIcon.src = isDark
-        ? "static/icons8-twitter-50 (1).png"
-        : "static/icons8-twitter-50.png";
+    if (isPhone || isIpadPro) {
+      twitterIcon.src = isDark ? "static/icons8-twitter-50 (1).png" : "static/icons8-twitter-50.png";
     } else {
-      twitterIcon.src = isDark
-        ? "static/icons8-twitter-50.png"
-        : "static/icons8-twitter-50 (1).png";
+      twitterIcon.src = isDark ? "static/icons8-twitter-50.png" : "static/icons8-twitter-50 (1).png";
     }
   }
 
+  // Load saved theme from localStorage
   const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    if(themeIcon) themeIcon.src = "static/icons8-toggle-on-24.png";
-    updateTwitterIcon(true);
-  } else {
-    updateTwitterIcon(false);
-  }
+  const isDarkMode = savedTheme === "dark";
 
-  if(toggleBtn){
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDark = document.body.classList.contains("dark-mode");
-      if(themeIcon) themeIcon.src = isDark
-        ? "static/icons8-toggle-on-24.png"
-        : "static/icons8-toggle-off-24.png";
-      updateTwitterIcon(isDark);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  }
+  if (isDarkMode) document.body.classList.add("dark-mode");
+  if (themeIcon) themeIcon.src = isDarkMode ? "static/icons8-toggle-on-24.png" : "static/icons8-toggle-off-24.png";
+  updateTwitterIcon(isDarkMode);
 
-  window.addEventListener("resize", () => {
-    const isDark = document.body.classList.contains("dark-mode");
-    updateTwitterIcon(isDark);
+  // Toggle dark mode on button click
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const darkActive = document.body.classList.contains("dark-mode");
+
+    if (themeIcon) themeIcon.src = darkActive ? "static/icons8-toggle-on-24.png" : "static/icons8-toggle-off-24.png";
+    updateTwitterIcon(darkActive);
+    localStorage.setItem("theme", darkActive ? "dark" : "light");
   });
 
-  // CV Download Modal
-  const modal = document.getElementById("cvModal");
-  const downloadBtn = document.querySelector(".download-btn");
-  const closeModal = document.querySelector(".close");
-  const confirmDownload = document.querySelector(".confirm-download");
-
-  if(downloadBtn && modal){
-    downloadBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      modal.style.display = "block";
-    });
-  }
-  if(closeModal && modal){
-    closeModal.addEventListener("click", () => modal.style.display = "none");
-    window.addEventListener("click", event => {
-      if(event.target === modal) modal.style.display = "none";
-    });
-  }
-  if(confirmDownload && modal){
-    confirmDownload.addEventListener("click", () => modal.style.display = "none");
-  }
+  // Update Twitter icon on window resize
+  window.addEventListener("resize", () => {
+    const darkActive = document.body.classList.contains("dark-mode");
+    updateTwitterIcon(darkActive);
+  });
 
 });
