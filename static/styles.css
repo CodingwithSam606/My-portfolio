@@ -880,15 +880,38 @@ section h2 {
   margin-right: 10px;
 }
 
-.mail a {
-  color: #f5f2f1;
-  text-decoration: none;
-  font-weight: 600;
+/* Contact Details Container */
+.contact-details {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 4px; /* space between email and location */
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+}
+
+/* Email link */
+.contact-details a {
+  color: #0077cc;          /* default link color */
+  text-decoration: none;    /* remove default underline */
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* smooth fade */
+}
+
+/* Email hover effect */
+.contact-details a:hover {
+  color: #005fa3;          /* darker shade on hover */
+  text-decoration: underline;
+}
+
+/* Location text */
+.contact-details p {
+  color: #555;             /* gray for location */
+  margin: 0;
   transition: color 0.3s ease;
 }
 
-.mail a:hover {
-  color: #3f3e3e;
+/* Optional: fade location on hover over the container */
+.contact-details:hover p {
+  color: #333;
 }
 
 /* Social Icons */
@@ -1536,3 +1559,4 @@ body.dark-mode .download-btn::after {
     z-index: -1;
   }
 }
+
